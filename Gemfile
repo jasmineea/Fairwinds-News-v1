@@ -10,6 +10,8 @@ gem 'bootstrap_form'
 gem 'ckeditor_rails'
 gem 'carrierwave'
 gem 'activeadmin'
+gem 'friendly_id', '~> 5.4.0'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'

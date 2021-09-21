@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :find_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /posts or /posts.json
@@ -9,6 +9,9 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    if request.path != post_path(@post)
+      redirect_to @post, status: :moved_permanently
+    end
   end
 
   # GET /posts/new
@@ -63,8 +66,12 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
+    def find_post
+      @post = Post.friendly.find(params[:id])
+    end
+
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :content, :category_id, :image)
+      params.require(:post).permit(:title, :content, :category_id, :image, :slug)
     end
 end
