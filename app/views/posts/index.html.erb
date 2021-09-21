@@ -7,27 +7,29 @@
     <!-- Banner Area Start-->
     <section class="banner-area">
         <div class="banner-slider owl-carousel">
-            <div class="item" style="background-image: url(image-path('CBD_Blog_01.jpg'))">
+        <% Post.where(category_id: 4).each do |post| %>
+            <div class="item item-banner-header" style="background-image: <%= asset_path 'CBD_Blog_01.jpg'%>">
                 <div class="banner-inner">
-               
-                    <h4>Fashion</h4>
-                    <h2>Dining Room Reveal</h2>
-                    <a href="single.html" class="btn readmore-button">Read more</a>
+                    <h4><%= post.category.name %></h4>
+                    <h2><%= post.title %></h2>
+                    <%= link_to 'Read more', post, class: "btn readmore-button" %>
+                  
                 </div>
             </div>  
             <div class="item" style="background: url(assets/img/banner/slider-2.jpg)">
                 <div class="banner-inner">
-                    <h4>Fashion</h4>
-                    <h2>Dining Room Reveal</h2>
+                    <h4><%= post.category.name %></h4>
+                    <h2><%= post.title %></h2>
                     <a href="single.html" class="btn readmore-button">Read more</a>
                 </div>
             </div>  
             <div class="item" style="background: url(assets/img/banner/slider-1.jpg)">
                 <div class="banner-inner">
-                    <h4>Fashion</h4>
-                    <h2>Dining Room Reveal</h2>
+                    <h4><%= post.category.name %></h4>
+                    <h2><%= post.title %></h2>
                     <a href="single.html" class="btn readmore-button">Read more</a>
                 </div>
+                <% end %>
             </div>        
         </div>
     </section>
@@ -37,181 +39,107 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6">
+                    <% Post.where(title: "Brief History of Herbal Medicine").each do |post|%>
                     <div class="thumb pb-lg-3 pb-5">
-                        <img class="w-100" src="assets/img/post/1.jpg" alt="img">
+                        <%= image_tag post.image_url.to_s, class:"w-100" %>
                     </div>
                     <div class="blog-post-item-wrap">
                         <div class="post-content">
-                            <h6>Fashion</h6>
-                            <h4><a href="single.html">Designer Swimsuit</a></h4>
-                            <p>Nam rutrum suscipit orci ut ultrices. Sed arcu orci, curs quis augue porta feugiat posuere nisi. Fusce fringilla am etiam sit ameeque vitae elit condimentum auctor...</p>
+                            <h6><%= post.category.name %></h6>
+                            <h4><%= post.title %></h4>
+                            <p><%= truncate post.content.html_safe, length: 200, :escape => false %></p>
+                            <%= link_to 'Read more', post, class: "link-btn" %>
                             <div class="post-meta">
-                                <ul>
-                                    <li>By</li>
-                                    <li><a href="#">Alison morgan</a></li>
-                                    <li>May 8, 2017</li>
-                                </ul>
+                                <% end %>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
+                <% Post.where(title: "Brief History of Cannabis as Medicine").each do |post|%>
                     <div class="thumb pb-lg-3 pb-5">
-                        <img class="w-100" src="assets/img/post/2.jpg" alt="img">
+                        <%= image_tag post.image_url.to_s, class:"w-100" %>
                     </div>
                     <div class="blog-post-item-wrap">
                         <div class="post-content">
-                            <h6>HEALTH</h6>
-                            <h4><a href="single.html">Sugar Regulation</a></h4>
-                            <p>Nam rutrum suscipit orci ut ultrices. Sed arcu orci, curs quis augue porta feugiat posuere nisi. Fusce fringilla am etiam sit ameeque vitae elit condimentum auctor...</p>
+                         <h6><%= post.category.name %></h6>
+                            <h4><%= post.title %></h4>
+                            <p><%= truncate post.content.html_safe, length: 200, :escape => false %></p>
+                            <%= link_to 'Read more', post, class: "link-btn" %>
                             <div class="post-meta">
-                                <ul>
-                                    <li>By</li>
-                                    <li><a href="#">Alison morgan</a></li>
-                                    <li>May 8, 2017</li>
-                                </ul>
+                                <% end %>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
+                <% Post.where(title: "American Cannabis Pioneers").each do |post|%>
                     <div class="thumb pb-lg-3 pb-5">
-                        <img class="w-100" src="assets/img/post/6.png" alt="img">
+                        <%= image_tag post.image_url.to_s, class:"w-100" %>
                     </div>
                     <div class="blog-post-item-wrap">
                         <div class="post-content">
-                            <h6>TRAVEL</h6>
-                            <h4><a href="single.html">Greetings From Berlin</a></h4>
-                            <p>Nam rutrum suscipit orci ut ultrices. Sed arcu orci, curs quis augue porta feugiat posuere nisi. Fusce fringilla am etiam sit ameeque vitae elit condimentum auctor...</p>
+                            <h6><%= post.category.name %></h6>
+                            <h4><%= post.title %></h4>
+                            <p><%= truncate post.content.html_safe, length: 200, :escape => false %></p>
+                            <%= link_to 'Read more', post, class: "link-btn" %>
                             <div class="post-meta">
-                                <ul>
-                                    <li>By</li>
-                                    <li><a href="#">Alison morgan</a></li>
-                                    <li>May 8, 2017</li>
-                                </ul>
+                               <% end %>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
+                <% Post.where(title: "Boosting Your Immune System With Natural Remedies").each do |post| %>
                     <div class="thumb pb-lg-3 pb-5">
-                        <img class="w-100" src="assets/img/post/4.jpg" alt="img">
+                        <%= image_tag post.image_url.to_s, class:"w-100" %>
                     </div>
                     <div class="blog-post-item-wrap">
                         <div class="post-content">
-                            <h6>FOOD</h6>
-                            <h4><a href="single.html">Apricot Vanilla Cashew</a></h4>
-                            <p>Nam rutrum suscipit orci ut ultrices. Sed arcu orci, curs quis augue porta feugiat posuere nisi. Fusce fringilla am etiam sit ameeque vitae elit condimentum auctor...</p>
+                            <h6><%= post.category.name %></h6>
+                            <h4><%= post.title %></h4>
+                            <p><%= truncate post.content.html_safe, length: 200, :escape => false %></p>
+                            <%= link_to 'Read more', post, class: "link-btn" %>
                             <div class="post-meta">
-                                <ul>
-                                    <li>By</li>
-                                    <li><a href="#">Alison morgan</a></li>
-                                    <li>May 8, 2017</li>
-                                </ul>
+                                <% end %>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
+                <% Post.where(title: "What Is CBD?").each do |post| %>
                     <div class="thumb pb-lg-3 pb-5">
-                        <img class="w-100" src="assets/img/post/5.jpg" alt="img">
+                        <%= image_tag post.image_url.to_s, class:"w-100" %>
                     </div>
                     <div class="blog-post-item-wrap">
                         <div class="post-content">
-                            <h6>TRAVEL</h6>
-                            <h4><a href="single.html">Atlantis Lunch Nobu</a></h4>
-                            <p>Nam rutrum suscipit orci ut ultrices. Sed arcu orci, curs quis augue porta feugiat posuere nisi. Fusce fringilla am etiam sit ameeque vitae elit condimentum auctor...</p>
+                            <h6><%= post.category.name %></h6>
+                            <h4><%= post.title %></h4>
+                            <%= truncate post.content.html_safe, length: 200, :escape => false %></p>
+                            <%= link_to 'Read more', post, class: "link-btn" %>
                             <div class="post-meta">
-                                <ul>
-                                    <li>By</li>
-                                    <li><a href="#">Alison morgan</a></li>
-                                    <li>May 8, 2017</li>
-                                </ul>
+                                <% end %>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
+                <% Post.where(title: "CBD And Your Pet").each do |post| %>
                     <div class="thumb pb-lg-3 pb-5">
-                        <img class="w-100" src="assets/img/featured/4.jpg" alt="img">
+                        <%= image_tag post.image_url.to_s, class:"w-100" %>
                     </div>
                     <div class="blog-post-item-wrap">
                         <div class="post-content">
-                            <h6>FASHION</h6>
-                            <h4><a href="single.html">Wear Lowaist Pants </a></h4>
-                            <p>Nam rutrum suscipit orci ut ultrices. Sed arcu orci, curs quis augue porta feugiat posuere nisi. Fusce fringilla am etiam sit ameeque vitae elit condimentum auctor...</p>
+                            <h6><%= post.category.name %></h6>
+                            <h4><%= post.title %></h4>
+                            <%= truncate post.content.html_safe, length: 200, :escape => false %></p>
+                            <%= link_to 'Read more', post, class: "link-btn" %>
                             <div class="post-meta">
-                                <ul>
-                                    <li>By</li>
-                                    <li><a href="#">Alison morgan</a></li>
-                                    <li>May 8, 2017</li>
-                                </ul>
+                                <% end %>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="thumb pb-lg-3 pb-5">
-                        <img class="w-100" src="assets/img/featured/2.jpg" alt="img">
-                    </div>
-                    <div class="blog-post-item-wrap">
-                        <div class="post-content">
-                            <h6>HEALTH</h6>
-                            <h4><a href="single.html">The Straw Handbags </a></h4>
-                            <p>Nam rutrum suscipit orci ut ultrices. Sed arcu orci, curs quis augue porta feugiat posuere nisi. Fusce fringilla am etiam sit ameeque vitae elit condimentum auctor...</p>
-                            <div class="post-meta">
-                                <ul>
-                                    <li>By</li>
-                                    <li><a href="#">Alison morgan</a></li>
-                                    <li>May 8, 2017</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="thumb pb-lg-3 pb-5">
-                        <img class="w-100" src="assets/img/featured/0.png" alt="img">
-                    </div>
-                    <div class="blog-post-item-wrap">
-                        <div class="post-content">
-                            <h6>HEALTH</h6>
-                            <h4><a href="single.html">Jumeiran Beach </a></h4>
-                            <p>Nam rutrum suscipit orci ut ultrices. Sed arcu orci, curs quis augue porta feugiat posuere nisi. Fusce fringilla am etiam sit ameeque vitae elit condimentum auctor...</p>
-                            <div class="post-meta">
-                                <ul>
-                                    <li>By</li>
-                                    <li><a href="#">Alison morgan</a></li>
-                                    <li>May 8, 2017</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="thumb pb-lg-3 pb-5">
-                        <img class="w-100" src="assets/img/featured/1.jpg" alt="img">
-                    </div>
-                    <div class="blog-post-item-wrap">
-                        <div class="post-content">
-                            <h6>FOOD</h6>
-                            <h4><a href="single.html">Jeans Like Supermo </a></h4>
-                            <p>Nam rutrum suscipit orci ut ultrices. Sed arcu orci, curs quis augue porta feugiat posuere nisi. Fusce fringilla am etiam sit ameeque vitae elit condimentum auctor...</p>
-                            <div class="post-meta">
-                                <ul>
-                                    <li>By</li>
-                                    <li><a href="#">Alison morgan</a></li>
-                                    <li>May 8, 2017</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 text-center mt-5">
-                    <a class="btn btn-gray-border" href="home-2.html">LOAD MORE POSTS</a>
-                </div>    
-            </div>
-        </div>
     </section>
     <!-- latest post Area End -->
         <!-- instagram Area Start-->
@@ -219,33 +147,34 @@
     <div class="instagram-area">
         <div class="instagram-slider owl-carousel">
             <div class="item">
-                <a href="#">    
-                </a>
+            <a href="https://www.instagram.com/fairwindscbd/">  
+            <%= image_tag ('flow.jpg') %>
+            </a>
             </div>
             <div class="item">
-                <a href="#">    
-                    <img src="assets/img/instagram/2.jpg" alt="img">
-                </a>
+            <a href="https://www.instagram.com/fairwindscbd/">  
+            <%= image_tag ('cbn.jpg') %>
+            </a>
             </div>
             
             <div class="item">
-                <a href="#">    
-                    <img src="assets/img/instagram/3.jpg" alt="img">
+            <a href="https://www.instagram.com/fairwindscbd/">  
+            <%= image_tag ('companion.jpg') %>
+            </a>
+            </div>
+            <div class="item">
+                <a href="https://www.instagram.com/fairwindscbd/">    
+                    <%= image_tag ('gut_health.jpg') %>
                 </a>
             </div>
             <div class="item">
-                <a href="#">    
-                    <img src="assets/img/instagram/4.jpg" alt="img">
+                <a href="https://www.instagram.com/fairwindscbd/">    
+                    <%= image_tag ('lavender.jpg') %>
                 </a>
             </div>
             <div class="item">
-                <a href="#">    
-                    <img src="assets/img/instagram/5.jpg" alt="img">
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">    
-                    <img src="assets/img/instagram/6.jpg" alt="img">
+                <a href="https://www.instagram.com/fairwindscbd/">    
+                    <%= image_tag ('ginger.jpg') %>
                 </a>
             </div>
         </div>
@@ -257,5 +186,3 @@
 <%= javascript_include_tag('slick-slider') %>
 <%= javascript_include_tag('owl') %>
 
-
-<%= link_to 'New Post', new_post_path %>

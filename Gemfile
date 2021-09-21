@@ -7,6 +7,9 @@ gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'bootstrap_form'
+gem 'ckeditor_rails'
+gem 'carrierwave'
+gem 'activeadmin'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
@@ -45,6 +48,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
